@@ -1,8 +1,7 @@
-function ContactRow( { contact, setSelectedContactId }) {
+function ContactRow( { setSelectedContactId, contact }) {    
     return (
-        <tr onClick={function() {
-            setSelectedContactId(contact.id);
-            }}>
+        <tr onClick={() =>
+            setSelectedContactId(contact.id)}>
             <td>{contact.name}</td>
             <td>{contact.email}</td>
             <td>{contact.phone}</td>
