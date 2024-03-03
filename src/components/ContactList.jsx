@@ -10,6 +10,8 @@ const dummyContacts = [
     { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
   ];
 
+const API_URL = `https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users`;
+
 function ContactList (){
     const [contacts, setContacts] = useState(dummyContacts);
 
@@ -19,7 +21,7 @@ function ContactList (){
     useEffect(()=>{
         async function fetchContacts() {
             try {
-                const response = await fetch("https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users");
+                const response = await fetch(`${API_URL}`);
                 const result = await response.json();
                 console.log(result);
             } catch (error) {
