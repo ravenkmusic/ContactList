@@ -11,7 +11,7 @@ function App() {
       {selectedContactId ? (
         <div>Short message</div>
         ) : (
-        <ContactList />
+        <ContactList setselectedContactId={setselectedContactId}/>
         )}
     </>
   );
