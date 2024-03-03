@@ -23,7 +23,7 @@ function ContactList (){
             try {
                 const response = await fetch(`${API_URL}`);
                 const result = await response.json();
-                console.log(result);
+                setContacts(result);
             } catch (error) {
                 console.error("Can't retrieve data", error);
             }
