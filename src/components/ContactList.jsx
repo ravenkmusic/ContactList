@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 import ContactRow from "./ContactRow";
+import { useEffect } from "react";
 
     
 const dummyContacts = [
@@ -13,6 +14,20 @@ function ContactList (){
     const [contacts, setContacts] = useState(dummyContacts);
 
     console.log("Contacts: ", contacts);
+
+    // i am very pleased to say that i actually was able to come up with the useEffect logic myself, lol.
+    useEffect(()=>{
+        async function fetchContacts() {
+            try {
+                const response = await fetch("https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users");
+                const result = await response.json();
+                console.log(result);
+            } catch (error) {
+                console.error("Can't retrieve data", error);
+            }
+        }
+        fetchContacts();
+    },[]);
 
     return (
         <table>
