@@ -1,12 +1,10 @@
-import React from "react";
-import SelectedContact from "./SelectedContact";
+import React from 'react';
 
-function ContactRow({ contact, setSelectedContactId }){
+function ContactRow( { contact, setSelectedContactId }) {
     return (
-        <tr onClick={() => {
+        <tr onClick={function() {
             setSelectedContactId(contact.id);
-            }}
-        >
+            }}>
             <td>{contact.name}</td>
             <td>{contact.email}</td>
             <td>{contact.phone}</td>

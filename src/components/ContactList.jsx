@@ -15,7 +15,6 @@ const API_URL = `https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users`;
 function ContactList ({ setSelectedContactId }){
     const [contacts, setContacts] = useState(dummyContacts);
 
-    console.log("Contacts: ", contacts);
 
     // i am very pleased to say that i actually was able to come up with the useEffect logic myself, lol.
     useEffect(()=>{
@@ -28,7 +27,7 @@ function ContactList ({ setSelectedContactId }){
                 console.error("Can't retrieve data", error);
             }
         }
-        fetchContacts();
+        fetchContacts()
     },[]);
 
     return (
@@ -46,9 +45,13 @@ function ContactList ({ setSelectedContactId }){
             </tr>
             {
                contacts.map((contact) => {
-                return <ContactRow key = {contact.id} contact = {contact} />
-               })
-             }
+                return (
+                <ContactRow key = {contact.id}
+                contact = {contact} 
+                setselectedContactId = {setSelectedContactId} 
+                />
+               );
+            })}
           </tbody>
         </table>
     );
