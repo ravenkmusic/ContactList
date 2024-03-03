@@ -1,13 +1,11 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContactRow from "./ContactRow";
 
 
 const API_URL = `https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users`;
 
-const SelectedContact = ({selectedContactId, selectedContactId}) => {
-    const [contact, setContact] = useState([null]);
+const SelectedContact = ({selectedContactId, setSelectedContactId}) => {
+    const [contact, setContact] = useState(null);
     
     useEffect(()=>{
         async function fetchSelectedContact() {
@@ -19,8 +17,12 @@ const SelectedContact = ({selectedContactId, selectedContactId}) => {
                 console.error("Can't retrieve data", error);
             }
         }
-        fetchSelectedContact()
-    },[]);
+
+        if (selectedContactId){
+            fetchSelectedContact();
+        }
+
+    },[selectedContactId]);
     return (
         <>
         <table>

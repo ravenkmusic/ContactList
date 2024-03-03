@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 import ContactList from './components/ContactList'
-import ContactRow from "./components/ContactRow"
 import SelectedContact from './components/SelectedContact'
 
 function App() {
